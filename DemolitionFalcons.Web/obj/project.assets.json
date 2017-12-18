@@ -13173,11 +13173,11 @@
       "hideWarningsAndErrors": true
     },
     "restore": {
-      "projectUniqueName": "C:\\Users\\a34370\\Desktop\\DemolitionFalcons\\Console-Version\\WEB\\DemolitionFalcons.Web\\DemolitionFalcons.Web.csproj",
+      "projectUniqueName": "C:\\Users\\a34370\\Desktop\\DemolitionFalconsWeb\\DemolitionFalcons.Web\\DemolitionFalcons.Web.csproj",
       "projectName": "DemolitionFalcons.Web",
-      "projectPath": "C:\\Users\\a34370\\Desktop\\DemolitionFalcons\\Console-Version\\WEB\\DemolitionFalcons.Web\\DemolitionFalcons.Web.csproj",
+      "projectPath": "C:\\Users\\a34370\\Desktop\\DemolitionFalconsWeb\\DemolitionFalcons.Web\\DemolitionFalcons.Web.csproj",
       "packagesPath": "C:\\Users\\a34370\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\a34370\\Desktop\\DemolitionFalcons\\Console-Version\\WEB\\DemolitionFalcons.Web\\obj\\",
+      "outputPath": "C:\\Users\\a34370\\Desktop\\DemolitionFalconsWeb\\DemolitionFalcons.Web\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
@@ -13196,11 +13196,11 @@
       "frameworks": {
         "netcoreapp2.0": {
           "projectReferences": {
-            "C:\\Users\\a34370\\Desktop\\DemolitionFalcons\\Console-Version\\WEB\\DemolitionFalcons.Services\\DemolitionFalcons.Services.csproj": {
-              "projectPath": "C:\\Users\\a34370\\Desktop\\DemolitionFalcons\\Console-Version\\WEB\\DemolitionFalcons.Services\\DemolitionFalcons.Services.csproj"
+            "C:\\Users\\a34370\\Desktop\\DemolitionFalconsWeb\\DemolitionFalcons.Services\\DemolitionFalcons.Services.csproj": {
+              "projectPath": "C:\\Users\\a34370\\Desktop\\DemolitionFalconsWeb\\DemolitionFalcons.Services\\DemolitionFalcons.Services.csproj"
             },
-            "C:\\Users\\a34370\\Desktop\\DemolitionFalcons\\Console-Version\\WEB\\DemolitionFalcons.Data\\DemolitionFalcons.Data.csproj": {
-              "projectPath": "C:\\Users\\a34370\\Desktop\\DemolitionFalcons\\Console-Version\\WEB\\DemolitionFalcons.Data\\DemolitionFalcons.Data.csproj"
+            "C:\\Users\\a34370\\Desktop\\DemolitionFalconsWeb\\DemolitionFalcons.Data\\DemolitionFalcons.Data.csproj": {
+              "projectPath": "C:\\Users\\a34370\\Desktop\\DemolitionFalconsWeb\\DemolitionFalcons.Data\\DemolitionFalcons.Data.csproj"
             }
           }
         }

@@ -3695,11 +3695,11 @@
       "hideWarningsAndErrors": true
     },
     "restore": {
-      "projectUniqueName": "C:\\Users\\a34370\\Desktop\\DemolitionFalcons\\Console-Version\\WEB\\DemolitionFalcons.Services\\DemolitionFalcons.Services.csproj",
+      "projectUniqueName": "C:\\Users\\a34370\\Desktop\\DemolitionFalconsWeb\\DemolitionFalcons.Services\\DemolitionFalcons.Services.csproj",
       "projectName": "DemolitionFalcons.Services",
-      "projectPath": "C:\\Users\\a34370\\Desktop\\DemolitionFalcons\\Console-Version\\WEB\\DemolitionFalcons.Services\\DemolitionFalcons.Services.csproj",
+      "projectPath": "C:\\Users\\a34370\\Desktop\\DemolitionFalconsWeb\\DemolitionFalcons.Services\\DemolitionFalcons.Services.csproj",
       "packagesPath": "C:\\Users\\a34370\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\a34370\\Desktop\\DemolitionFalcons\\Console-Version\\WEB\\DemolitionFalcons.Services\\obj\\",
+      "outputPath": "C:\\Users\\a34370\\Desktop\\DemolitionFalconsWeb\\DemolitionFalcons.Services\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
@@ -3718,8 +3718,8 @@
       "frameworks": {
         "netstandard2.0": {
           "projectReferences": {
-            "C:\\Users\\a34370\\Desktop\\DemolitionFalcons\\Console-Version\\WEB\\DemolitionFalcons.Data\\DemolitionFalcons.Data.csproj": {
-              "projectPath": "C:\\Users\\a34370\\Desktop\\DemolitionFalcons\\Console-Version\\WEB\\DemolitionFalcons.Data\\DemolitionFalcons.Data.csproj"
+            "C:\\Users\\a34370\\Desktop\\DemolitionFalconsWeb\\DemolitionFalcons.Data\\DemolitionFalcons.Data.csproj": {
+              "projectPath": "C:\\Users\\a34370\\Desktop\\DemolitionFalconsWeb\\DemolitionFalcons.Data\\DemolitionFalcons.Data.csproj"
             }
           }
         }

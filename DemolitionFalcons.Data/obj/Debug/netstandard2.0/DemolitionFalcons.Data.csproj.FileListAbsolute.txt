@@ -7,3 +7,12 @@ C:\Users\a34370\Desktop\DemolitionFalcons\Console-Version\WEB\DemolitionFalcons.
 C:\Users\a34370\Desktop\DemolitionFalcons\Console-Version\WEB\DemolitionFalcons.Data\obj\Debug\netstandard2.0\DemolitionFalcons.Data.AssemblyInfo.cs
 C:\Users\a34370\Desktop\DemolitionFalcons\Console-Version\WEB\DemolitionFalcons.Data\obj\Debug\netstandard2.0\DemolitionFalcons.Data.dll
 C:\Users\a34370\Desktop\DemolitionFalcons\Console-Version\WEB\DemolitionFalcons.Data\obj\Debug\netstandard2.0\DemolitionFalcons.Data.pdb
+C:\Users\a34370\Desktop\DemolitionFalconsWeb\DemolitionFalcons.Data\bin\Debug\netstandard2.0\DemolitionFalcons.Data.deps.json
+C:\Users\a34370\Desktop\DemolitionFalconsWeb\DemolitionFalcons.Data\bin\Debug\netstandard2.0\DemolitionFalcons.Data.dll
+C:\Users\a34370\Desktop\DemolitionFalconsWeb\DemolitionFalcons.Data\bin\Debug\netstandard2.0\DemolitionFalcons.Data.pdb
+C:\Users\a34370\Desktop\DemolitionFalconsWeb\DemolitionFalcons.Data\obj\Debug\netstandard2.0\DemolitionFalcons.Data.csprojResolveAssemblyReference.cache
+C:\Users\a34370\Desktop\DemolitionFalconsWeb\DemolitionFalcons.Data\obj\Debug\netstandard2.0\DemolitionFalcons.Data.csproj.CoreCompileInputs.cache
+C:\Users\a34370\Desktop\DemolitionFalconsWeb\DemolitionFalcons.Data\obj\Debug\netstandard2.0\DemolitionFalcons.Data.AssemblyInfoInputs.cache
+C:\Users\a34370\Desktop\DemolitionFalconsWeb\DemolitionFalcons.Data\obj\Debug\netstandard2.0\DemolitionFalcons.Data.AssemblyInfo.cs
+C:\Users\a34370\Desktop\DemolitionFalconsWeb\DemolitionFalcons.Data\obj\Debug\netstandard2.0\DemolitionFalcons.Data.dll
+C:\Users\a34370\Desktop\DemolitionFalconsWeb\DemolitionFalcons.Data\obj\Debug\netstandard2.0\DemolitionFalcons.Data.pdb
