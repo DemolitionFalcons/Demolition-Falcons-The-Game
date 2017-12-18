@@ -1,4 +1,4 @@
-﻿namespace DemolitionFalcons.Web
+﻿namespace DemolitionFalcons.Data
 {
     using Microsoft.AspNetCore;
     using Microsoft.AspNetCore.Hosting;

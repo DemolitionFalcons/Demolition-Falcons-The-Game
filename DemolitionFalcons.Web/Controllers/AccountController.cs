@@ -1,4 +1,4 @@
-﻿namespace DemolitionFalcons.Web.Controllers
+﻿namespace DemolitionFalcons.Data.Controllers
 {
     using DemolitionFalcons.Data.Models;
     using DemolitionFalcons.Data.Models.AccountViewModels;

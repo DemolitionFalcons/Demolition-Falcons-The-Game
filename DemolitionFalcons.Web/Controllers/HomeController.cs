@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Diagnostics;
-namespace DemolitionFalcons.Web.Controllers
+namespace DemolitionFalcons.Data.Controllers
 {
     using System.Linq;
     using System.Threading.Tasks;

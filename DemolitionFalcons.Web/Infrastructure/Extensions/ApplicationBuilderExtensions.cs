@@ -1,7 +1,7 @@
-﻿namespace DemolitionFalcons.Web.Infrastructure.Extensions
+﻿namespace DemolitionFalcons.Data.Infrastructure.Extensions
 {
     using Data.Models;
-    using DemolitionFalcons.Web;
+    using DemolitionFalcons.Data;
     using Microsoft.AspNetCore.Builder;
     using Microsoft.AspNetCore.Identity;
     using Microsoft.EntityFrameworkCore;

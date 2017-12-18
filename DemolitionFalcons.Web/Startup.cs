@@ -1,6 +1,6 @@
-﻿namespace DemolitionFalcons.Web
+﻿namespace DemolitionFalcons.Data
 {
-    using DemolitionFalcons.Web.Infrastructure.Extensions;
+    using DemolitionFalcons.Data.Infrastructure.Extensions;
     using DemolitionFalcons.Data.Models;
     using Microsoft.AspNetCore.Builder;
     using Microsoft.AspNetCore.Hosting;

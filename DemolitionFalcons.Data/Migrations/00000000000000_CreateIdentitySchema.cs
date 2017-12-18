@@ -1,4 +1,4 @@
-﻿namespace DemolitionFalcons.Web.Migrations
+﻿namespace DemolitionFalcons.Data.Migrations
 {
     using Microsoft.EntityFrameworkCore.Metadata;
     using Microsoft.EntityFrameworkCore.Migrations;

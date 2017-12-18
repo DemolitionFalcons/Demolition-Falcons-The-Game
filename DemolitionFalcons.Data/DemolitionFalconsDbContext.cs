@@ -1,4 +1,4 @@
-﻿namespace DemolitionFalcons.Web
+﻿namespace DemolitionFalcons.Data
 {
     using DemolitionFalcons.Data.Models;
     using Microsoft.AspNetCore.Identity.EntityFrameworkCore;

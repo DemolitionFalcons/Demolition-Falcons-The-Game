@@ -1,4 +1,4 @@
-﻿namespace DemolitionFalcons.Web
+﻿namespace DemolitionFalcons.Data
 {
     public class WebConstants
     {

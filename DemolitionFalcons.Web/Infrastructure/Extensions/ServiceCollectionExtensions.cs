@@ -1,4 +1,4 @@
-﻿namespace DemolitionFalcons.Web.Infrastructure.Extensions
+﻿namespace DemolitionFalcons.Data.Infrastructure.Extensions
 {
     using DemolitionFalcons.Services;
     using Microsoft.Extensions.DependencyInjection;
