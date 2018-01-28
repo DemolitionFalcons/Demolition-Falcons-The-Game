@@ -1,0 +1,36 @@
+
+<div class="container">
+  <h2 class="title display-4" >Log In</h2>
+    <form (ngSubmit)="login()" #loginForm="ngForm">
+      <div class="form-group">
+        <input type="text" class="form-control"
+        required
+        [(ngModel)]="model.username"
+        name="username"
+        #username="ngModel"
+        placeholder="Username">
+        <div [hidden]="username.valid || username.pristine" class="alert alert-danger">
+          Username is required!
+        </div>
+      </div>
+  
+      <div class="form-group">
+        <input type="password" class="form-control"
+        required
+        [(ngModel)]="model.password"
+        name="password"
+        #password="ngModel"
+        placeholder="Password">
+        <div [hidden]="password.valid || password.pristine" class="alert alert-danger">
+          Password is required!
+        </div>
+      </div>
+      <span>No account? Don't waste time, <b class="register-span"(click)="goToRegister()">REGISTER NOW!</b></span>
+      <button [hidden]="!loginForm.form.valid" type="submit" class="play-now">Play now!</button>    
+    </form>
+          
+    <div *ngIf="loginFail" class="alert alert-danger">
+        Failed Login!
+    </div>
+  </div>
+  

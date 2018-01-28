@@ -1,0 +1,61 @@
+<div class="wrapper">
+  <div class="container">
+    <!-- {{model|json}} -->
+    <h2 class="title display-4">Create game</h2>
+    <form (ngSubmit)="chooseHeroes(createGameForm)" #createGameForm="ngForm">
+      <div class="form-group">
+        <input type="text" class="form-control" required [(ngModel)]="model.name" name="name" #name="ngModel" placeholder="Name of your game">
+        <div [hidden]="name.valid || name.pristine" class="alert alert-danger">
+          Username is required!
+        </div>
+      </div>
+      <div class="form-group">
+        <label for="numberOfOpponents">Number of opponents</label>
+        <select required placeholder="Select number of opponents" (click)="updateOpps()" class="form-control" required [(ngModel)]="model.numberOfOpponents" name="numberOfOpponents" #numberOfOpponents="ngModel" id="numberOfOpponents">
+          <option value="" disabled selected>Select number of opponents</option>
+          <option value="1">one</option>
+          <option  value="2">Two</option>
+          <option  value="3">Three</option>
+        </select>
+      </div>
+      <div>{{model.opponents}}</div>
+      <div *ngFor="let n of opponentsArr; let i = index">
+        <select required placeholder="Select number of opponents" class="form-control" [ngModel]="player" name="player{{i + 2}}" #opp{{i}}="ngModel" id="type">
+          <option value="" disabled selected>`Type of opponents</option>
+          <option value="computer">computer</option>
+          <option  value="human">human</option>
+        </select>
+      </div>
+      <div class="form-group">
+        <div class="cc-selector">
+
+          <div class="map-container">
+            <h4 class="title display-4">Desert</h4>
+            <input id="map1" type="radio" name="map1" [(ngModel)]="model.map" #map="ngModel" value="map1" />
+            <label class="maps-style map1" for="map1"></label>
+          </div>
+        </div>
+      </div>
+      <br>
+      <br>
+
+      <button type="submit" >Choose Heroes</button>
+    </form>
+  </div>
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+  <footer>Footer</footer>
+</div>
