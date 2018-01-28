@@ -26,7 +26,7 @@ export class HeroesListComponent implements OnInit {
 
     private router: Router
   ) {
- 
+
     this.heroes = [{
       name: 'Falcon',
       hp: 400,
@@ -40,25 +40,25 @@ export class HeroesListComponent implements OnInit {
       armor: 20,
       image: '../../../../assets/img/heroes/hero-list/cloudy.png',
       description: 'It comes from a Cloudysland,drives skate and has a strange hairstyle'
-    },{
+    }, {
       name: 'Edward',
       hp: 500,
       armor: 20,
       image: '../../../../assets/img/heroes/hero-list/edward.png',
       description: 'It comes from nowhere,wears jacket and rocks'
-    },{
+    }, {
       name: 'Stephano',
       hp: 500,
       armor: 20,
       image: '../../../../assets/img/heroes/hero-list/stephano.png',
       description: 'It comes from a Scary place, eats brains and frightens children'
-    },{
+    }, {
       name: 'Darcus',
       hp: 500,
       armor: 20,
       image: '../../../../assets/img/heroes/hero-list/darcus.png',
       description: 'It comes from an Island far far away, and burns everything on its way'
-    },{
+    }, {
       name: 'Leonardo',
       hp: 500,
       armor: 20,
@@ -67,7 +67,7 @@ export class HeroesListComponent implements OnInit {
     }];
 
     this.heroesObjects = {};
-    for(let hero of this.heroes){
+    for (let hero of this.heroes) {
       this.heroesObjects[hero.name] = hero;
     }
     this.createGameService.gameObgectRecieved$.subscribe(obj => {
@@ -84,7 +84,7 @@ export class HeroesListComponent implements OnInit {
       this.playersArr = Array.from(Object.keys(playersObj))
 
       this.className = 'col-sm-' + 12 / this.gameObject.numberOfPlayers;
-    })
+    });
   }
 
   ngOnInit() {
@@ -92,15 +92,16 @@ export class HeroesListComponent implements OnInit {
   }
 
   sendGameObjectToServer() {
-    this.remoteService.sendGameObject(this.gameObject).subscribe(data => { 
-    // this.createGameService.updateGameObject(this.gameObject) 
+    this.remoteService.sendGameObject(this.gameObject).subscribe(data => {
+      // this.createGameService.updateGameObject(this.gameObject) 
       this.gameInitInfoService.updateGameInitialInfot(data);
-    })
+    });
   }
 
   startGame() {
     this.createGameService.updateGameObject(this.gameObject);
-   this.router.navigate(['/play']);
+    console.log(this.gameObject)
+    this.router.navigate(['/play']);
   }
 
 }

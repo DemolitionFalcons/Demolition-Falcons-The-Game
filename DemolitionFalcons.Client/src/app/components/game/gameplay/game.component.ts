@@ -64,7 +64,7 @@ export class GameComponent implements OnInit, OnDestroy {
     this.allPlayers = this.playerService.getPlayers();
     this.playerPathSize = this.playerService.getPlayerPathSize();
 
-    console.log(this.allPlayers);
+    //console.log(this.allPlayers);
     // this.diceService.drawDice(this.paper);
   }
 

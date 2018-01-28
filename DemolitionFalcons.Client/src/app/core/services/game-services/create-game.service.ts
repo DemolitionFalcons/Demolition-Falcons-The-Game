@@ -12,10 +12,11 @@ export class CreateGameService {
 
     createGamePost(gameModel): void {
         //http request POST пращаме модела, по който създаваме игра
-        console.log(gameModel);
+        // console.log(gameModel);
     }
 
     updateGameObject(data){
         this.gameObjectSource.next(data);
+        
     }
 }
