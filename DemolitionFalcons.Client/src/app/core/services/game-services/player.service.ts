@@ -295,8 +295,10 @@ export class PlayerService {
     getPlayers() {
         //http for players
 
-        let players = Array.from(Object.keys(this.gameObject)).filter(k => k.startsWith('player')).map(e => e = this.gameObject[e])
-
+        // let players = Array.from(Object.keys(this.gameObject)).filter(k => k.startsWith('player')).map(e => e = this.gameObject[e])
+        if (this.gameObject.allPlayers) {
+            let players = this.gameObject.allPlayers;
+        }
         let gamePLayers: Array<{}> = [];
         for (let i = 0; i < players.length; i++) {
             let playerOffsets = getOffset(i, players.length);
@@ -372,5 +374,5 @@ export class PlayerService {
         // ]
     }
 
-    
+
 }
