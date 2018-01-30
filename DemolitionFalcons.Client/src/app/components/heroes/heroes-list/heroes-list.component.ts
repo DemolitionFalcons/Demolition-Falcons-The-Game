@@ -15,7 +15,7 @@ export class HeroesListComponent implements OnInit {
 
   public gameObject;
   public heroes: HeroModel[];
-  public playersArr;
+  public playersArr: any[];
   public playersObj: {};
   public className: string;
   public heroesObjects;
@@ -73,16 +73,14 @@ export class HeroesListComponent implements OnInit {
     this.createGameService.gameObgectRecieved$.subscribe(obj => {
       this.gameObject = obj;
 
-      let playersObj = {}
+      let playersObj = {};
 
       for (let key in obj) {
         if (key.startsWith('player')) {
           playersObj[key] = obj[key];
         }
       }
-
-      this.playersArr = Array.from(Object.keys(playersObj))
-
+      this.playersArr = Array.from(Object.keys(playersObj));
       this.className = 'col-sm-' + 12 / this.gameObject.numberOfPlayers;
     });
   }
@@ -100,8 +98,18 @@ export class HeroesListComponent implements OnInit {
 
   startGame() {
     this.createGameService.updateGameObject(this.gameObject);
+    //слагам информацията за играчите в масив преди да ги изпратим (така поиска Златьо да му изпращаме обекта)
+    this.gameObject['allPlayers'] = [];
+    for (let key in this.gameObject) {
+      if (key.startsWith('player')) {
+        this.gameObject['allPlayers'].push(this.gameObject[key]);
+        delete this.gameObject[key];
+      }
+    }
+    //готовия обект за изпращане на заявака "this.gameObject"
     console.log(this.gameObject)
     this.router.navigate(['/play']);
+
   }
 
 }
