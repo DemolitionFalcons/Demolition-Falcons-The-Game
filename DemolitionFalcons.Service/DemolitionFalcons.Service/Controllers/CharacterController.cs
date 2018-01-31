@@ -10,6 +10,7 @@ namespace DemolitionFalcons.Service.Controllers
     using App.Commands.DataProcessor;
     using App.Commands.DataProcessor.Export.Dto;
     using App.Maps;
+    using DemolitionFalcons.Models;
     using Front;
 
     public class CharacterController : BaseApiController
@@ -35,6 +36,19 @@ namespace DemolitionFalcons.Service.Controllers
                 .FirstOrDefault();
 
             return character;
+
+        }
+
+        // GET api/character/name
+        [HttpGet("{name}")]
+        public HeroFront Get(string name)
+        {
+            Character dbcharacter = this.dbContext.Characters
+                .FirstOrDefault( c => c.Name == name);
+            HeroFront result = new HeroFront(dbcharacter.Name
+                , dbcharacter.Label, dbcharacter.Description, dbcharacter.Hp, dbcharacter.Armour);
+
+            return result;
 
         }
     }

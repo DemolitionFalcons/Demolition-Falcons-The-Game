@@ -11,6 +11,7 @@
     using DemolitionFalcons.Data.Support;
     using Front;
     using Models;
+    using DemolitionFalcons.App.Core.DTOs;
 
     public class GameController : BaseApiController
     {
@@ -39,6 +40,22 @@
 
             return Mapper.Map<GameFront>(result);
         }
+
+        // GET api/game/5/players
+        //[HttpGet("{id}/players")]
+        //public PlayerFront GetPlayers(int id)
+        //{
+        //    Mapper.Initialize(cfg => cfg.CreateMap<Game, PlayerFront>());
+
+        //    var result = this.dbContext.GameCharacters
+        //        .Where(game => game.GameId == id)
+        //        .Select(pl => new PlayerDto
+        //        {
+        //            pl.
+        //        }
+
+        //    return Mapper.Map<GameFront>(result);
+        //}
 
         // POST api/game
         [HttpPost]
