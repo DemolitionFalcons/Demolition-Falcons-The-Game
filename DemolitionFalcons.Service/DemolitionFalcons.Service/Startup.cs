@@ -42,6 +42,10 @@ namespace DemolitionFalcons.Service
                 app.UseDeveloperExceptionPage();
             }
 
+            app.UseCors(
+                    options => options.WithOrigins("http://localhost").AllowAnyMethod()
+            );
+
             app.UseMvc();
         }
     }
