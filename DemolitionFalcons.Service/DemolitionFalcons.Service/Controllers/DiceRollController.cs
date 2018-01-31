@@ -1,4 +1,6 @@
-﻿namespace DemolitionFalcons.Service.Controllers
+﻿
+
+namespace DemolitionFalcons.Service.Controllers
 {
     using System;
     using System.Collections.Generic;
@@ -11,19 +13,18 @@
     using DemolitionFalcons.Data.Support;
     using Front;
     using Models;
+    using DemolitionFalcons.App.Core.DTOs;
 
-    public class GameController : BaseApiController
+    public class DiceRollController : BaseApiController
     {
         [HttpGet]
-        public IEnumerable<CharacterFront> Get()
-        {       
+        public DiceFront Get()
+        {
             var map = new DemoMap("map1");
 
-            var character = this.dbContext.GameCharacters
-                .Select(c => new CharacterFront(c.Game.Name, map.Name, c.Game.Characters.Count()))
-                .ToArray();
+            var dice = new DiceDto();
 
-            return character;
+            return new DiceFront(dice.RollDice());
         }
 
         // GET api/game/5

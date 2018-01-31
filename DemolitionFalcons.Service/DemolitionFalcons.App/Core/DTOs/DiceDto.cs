@@ -13,7 +13,7 @@
         {
             int result = 1;
             var rnd = new Random();
-            result = rnd.Next(1, 6);
+            result = rnd.Next(1, 7);
 
             LastRollResult = result;
 
