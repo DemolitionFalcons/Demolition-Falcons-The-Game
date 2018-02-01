@@ -41,21 +41,31 @@
             return Mapper.Map<GameFront>(result);
         }
 
-        // GET api/game/5/players
-        //[HttpGet("{id}/players")]
-        //public PlayerFront GetPlayers(int id)
-        //{
-        //    Mapper.Initialize(cfg => cfg.CreateMap<Game, PlayerFront>());
+        //GET api/game/5/players
+        [HttpGet("{id}/players")]
+        public IEnumerable<PlayerFront> GetPlayers(int id)
+        {
+            Mapper.Initialize(cfg => cfg.CreateMap<Game, PlayerFront>());
+            var res = new List<PlayerFront>();
+            var gameChars = this.dbContext.Players.Where(pl => this.dbContext.GameCharacters.Any(g => g.GameId == id));
 
-        //    var result = this.dbContext.GameCharacters
-        //        .Where(game => game.GameId == id)
-        //        .Select(pl => new PlayerDto
-        //        {
-        //            pl.
-        //        }
+            foreach (var player in gameChars)
+            {
+                var playerFront = new PlayerFront(player.Id, player.Username, player.GamesPlayed, player.Wins, player.Xp, player.Money, player.Weapons);
+                res.Add(playerFront);
+            }
 
-        //    return Mapper.Map<GameFront>(result);
-        //}
+            #region
+            //not working properly
+            //var result = this.dbContext.Players
+            //    .Where(pl => this.dbContext.GameCharacters.Any(g => g.GameId == id))
+            //    .Select(pf => new PlayerFront(pf.Id, pf.Username, pf.GamesPlayed, pf.Wins, pf.Xp, pf.Money, pf.Weapons))
+            //    .ToArray();
+            //return result;
+            #endregion
+
+            return Mapper.Map<PlayerFront[]>(res);
+        }
 
         // POST api/game
         [HttpPost]
