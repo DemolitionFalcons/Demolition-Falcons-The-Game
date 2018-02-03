@@ -13,20 +13,20 @@
     using DemolitionFalcons.Models;
     using Front;
 
-    public class WeaponsController : BaseApiController
+    public class SpellsController : BaseApiController
     {
         // GET api/weapons
         [HttpGet]
-        public List<WeaponFront> Get()
+        public List<SpellFront> Get()
         {
-            Weapon[] dbWeapons = this.dbContext.Weapons.ToArray();
+            Spell[] dbSpells = this.dbContext.Spells.ToArray();
 
             //HeroFront[] outcome = new HeroFront[dbCharacters.Length];
-            List<WeaponFront> outcome = new List<WeaponFront>();
+            List<SpellFront> outcome = new List<SpellFront>();
 
-            foreach (var dbWeapon in dbWeapons)
+            foreach (var dbSpell in dbSpells)
             {
-                outcome.Add(new WeaponFront(dbWeapon.Name, dbWeapon.Damage, dbWeapon.Core));
+                outcome.Add(new SpellFront(dbSpell.Name, dbSpell.DamageBonus, dbSpell.SpellRange, dbSpell.Description));
             }
 
             return outcome;
