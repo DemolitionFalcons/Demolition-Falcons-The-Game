@@ -12,6 +12,13 @@
 
         public GameDto()
         {
+
+        }
+        public GameDto(string name, string map, int capacity)
+        {
+            this.Name = name;
+            this.Map = map;
+            this.Capacity = capacity;
         }
 
         public string Name
