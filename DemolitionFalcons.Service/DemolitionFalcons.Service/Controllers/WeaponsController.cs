@@ -12,21 +12,21 @@
     using App.Maps;
     using DemolitionFalcons.Models;
     using Front;
-    public class CharactersController : BaseApiController
+
+    public class WeaponsController : BaseApiController
     {
-        //print all characters, not just a specific one like the CharacterController
-        // GET api/characters
+        // GET api/weapons
         [HttpGet]
-        public List<HeroFront> Get()
+        public List<WeaponFront> Get()
         {
-            Character[] dbCharacters = this.dbContext.Characters.ToArray();
+            Weapon[] dbPlayers = this.dbContext.Weapons.ToArray();
 
             //HeroFront[] outcome = new HeroFront[dbCharacters.Length];
-            List<HeroFront> outcome = new List<HeroFront>();
-            
-            foreach (var dbChar in dbCharacters)
+            List<WeaponFront> outcome = new List<WeaponFront>();
+
+            foreach (var dbPlayer in dbPlayers)
             {
-                outcome.Add(new HeroFront(dbChar.Name, dbChar.Label, dbChar.Description, dbChar.Hp, dbChar.Armour));
+                outcome.Add(new WeaponFront(dbPlayer.Name, dbPlayer.Damage, dbPlayer.Core));
             }
 
             return outcome;

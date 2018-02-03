@@ -14,7 +14,7 @@
     using Front;
     public class LeaderboardController : BaseApiController
     {
-        // GET api/characters
+        // GET api/players
         [HttpGet]
         public List<PlayerFront> Get()
         {
