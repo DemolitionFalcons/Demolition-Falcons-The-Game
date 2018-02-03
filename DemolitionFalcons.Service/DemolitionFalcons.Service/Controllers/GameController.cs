@@ -69,8 +69,16 @@
 
         // POST api/game
         [HttpPost]
-        public void Post([FromBody]string value)
+        public IActionResult Post([FromBody]GameFront value)
         {
+            //    if (value == null)
+            //    {
+            //        return BadRequest();
+            //    }
+
+            //    dbContext.
+
+            return CreatedAtRoute("blqblq", new { id = value.Id }, value);
         }
 
         // PUT api/game/5
