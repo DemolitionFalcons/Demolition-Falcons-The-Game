@@ -12,21 +12,20 @@
     using App.Maps;
     using DemolitionFalcons.Models;
     using Front;
-    public class CharactersController : BaseApiController
+    public class LeaderboardController : BaseApiController
     {
-
         // GET api/characters
         [HttpGet]
-        public List<HeroFront> Get()
+        public List<PlayerFront> Get()
         {
-            Character[] dbCharacters = this.dbContext.Characters.ToArray();
+            Player[] dbPlayers = this.dbContext.Players.ToArray();
 
             //HeroFront[] outcome = new HeroFront[dbCharacters.Length];
-            List<HeroFront> outcome = new List<HeroFront>();
-            
-            foreach (var dbChar in dbCharacters)
+            List<PlayerFront> outcome = new List<PlayerFront>();
+
+            foreach (var dbPlayer in dbPlayers)
             {
-                outcome.Add(new HeroFront(dbChar.Name, dbChar.Label, dbChar.Description, dbChar.Hp, dbChar.Armour));
+                outcome.Add(new PlayerFront(dbPlayer.Username, dbPlayer.GamesPlayed, dbPlayer.Wins, dbPlayer.Xp, dbPlayer.Money,dbPlayer.Weapons));
             }
 
             return outcome;

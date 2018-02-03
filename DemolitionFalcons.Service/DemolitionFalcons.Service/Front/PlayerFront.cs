@@ -8,9 +8,9 @@ namespace DemolitionFalcons.Service.Front
 {
     public class PlayerFront
     {
-        public PlayerFront(int id, string username, int gamesPlayed, int wins, int xp, decimal money, ICollection<PlayerWeapon> weapons)
+        public PlayerFront(string username, int gamesPlayed, int wins, int xp, decimal money, ICollection<PlayerWeapon> weapons)
         {
-            this.Id = id;
+            //this.Id = id;
             this.Username = username;
             this.GamesPlayed = gamesPlayed;
             this.Wins = wins;
@@ -18,7 +18,7 @@ namespace DemolitionFalcons.Service.Front
             this.Weapons = weapons;
         }
 
-        public int Id { get; set; }
+        //public int Id { get; set; }
 
         public string Username { get; set; }
 
