@@ -27,6 +27,7 @@
             {
                 outcome.Add(new PlayerFront(dbPlayer.Username, dbPlayer.GamesPlayed, dbPlayer.Wins, dbPlayer.Xp, dbPlayer.Money,dbPlayer.Weapons));
             }
+            outcome.OrderByDescending(p => p.Wins).ThenByDescending(p => p.GamesPlayed).ThenBy(p => p.Username);
 
             return outcome;
 
