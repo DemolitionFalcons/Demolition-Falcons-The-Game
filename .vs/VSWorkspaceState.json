@@ -1,7 +1,9 @@
 {
   "ExpandedNodes": [
-    ""
+    "",
+    "\\DemolitionFalcons.Client",
+    "\\DemolitionFalcons.Service"
   ],
-  "SelectedNode": "\\DemolitionFalcons.sln",
+  "SelectedNode": "\\DemolitionFalcons.Service\\DemolitionFalcons-ConsoleVersion.sln",
   "PreviewInSolutionExplorer": false
 }
