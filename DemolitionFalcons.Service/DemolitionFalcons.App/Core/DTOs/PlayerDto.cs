@@ -14,6 +14,8 @@
             //this.Characters = new List<Character>();
             this.GamesPlayed = 0;
             this.Wins = 0;
+            this.Xp = 0;
+            this.Money = 0.0M;
         }
         //public int Id { get; set; }
 
@@ -49,6 +51,10 @@
         public int GamesPlayed { get; set; }
 
         public int Wins { get; set; }
+
+        public int Xp { get; set; }
+
+        public decimal Money { get; set; }
 
         //public ICollection<WeaponDto> Weapons { get; set; }
 

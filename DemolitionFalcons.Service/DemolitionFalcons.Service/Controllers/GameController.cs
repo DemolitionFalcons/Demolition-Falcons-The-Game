@@ -71,10 +71,14 @@
         [HttpPost]
         public string Post([FromBody]GameFront game)
         {
-            var name = game.Name;
-            var money = game.Money;
+            //    if (value == null)
+            //    {
+            //        return BadRequest();
+            //    }
 
-            return "fsdfsdf";
+            //    dbContext.
+
+            return CreatedAtRoute("blqblq", new { id = value.Id }, value);
         }
 
         // PUT api/game/5
