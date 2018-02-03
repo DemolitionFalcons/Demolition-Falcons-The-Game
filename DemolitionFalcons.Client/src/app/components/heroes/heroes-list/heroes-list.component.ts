@@ -19,6 +19,7 @@ export class HeroesListComponent implements OnInit {
   public playersObj: {};
   public className: string;
   public heroesObjects;
+  
   constructor(
     private createGameService: CreateGameService,
     private remoteService: RemoteService,

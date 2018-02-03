@@ -10,6 +10,8 @@ import { CreateGameService } from "./game-services/create-game.service";
 import { RemoteService } from './remote.service';
 import { GameInitInfoService } from './game-services/game-init-info.service';
 import { DiceService } from './game-services/dice.service';
+import { HeroesService } from './game-services/heroes.service';
+
 
 
 
@@ -23,6 +25,7 @@ import { DiceService } from './game-services/dice.service';
         RemoteService,
         GameInitInfoService,
         DiceService,
+        HeroesService
     ],
     imports: [
         CommonModule

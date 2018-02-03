@@ -4,6 +4,7 @@ import { CreateGameService } from '../../../core/services/game-services/create-g
 import { CreateSinglePlayersModel } from '../../../core/models/createSinglePlayer.model';
 import { RemoteService } from '../../../core/services/remote.service';
 import { Router } from '@angular/router';
+import { HeroesService } from '../../../core/services/game-services/heroes.service';
 
 @Component({
   selector: 'app-create-single-player',
@@ -19,7 +20,8 @@ export class CreateSinglePlayerComponent implements OnInit {
   constructor(
     private remoteService: RemoteService,
     private createGameService: CreateGameService,
-    private router: Router
+    private router: Router,
+    private heroesService: HeroesService
   ) {
     this.model = new CreateSinglePlayersModel('', '', 0);
     this.maps = new Array(3);
@@ -35,6 +37,7 @@ export class CreateSinglePlayerComponent implements OnInit {
   chooseHeroes(form) {
 
     this.remoteService.getHeroList().subscribe(data => {
+      console.log('HEROESSSSSSS')
       console.log(data);
     });
 

@@ -28,7 +28,7 @@ export class RemoteService {
 
     getHeroList(): Observable<any> {
         return this.http.get(
-            "https://locallhost:53429/api/hero",
+            "https://locallhost:49994/api/character/cloudy",
         );
     }
 

@@ -19,7 +19,6 @@ export class PlayerService {
         this.createGameService.gameObgectRecieved$.subscribe(data => {
             this.gameObject = data;
             this.players = this.getPlayers();
-
         })
         this.playerPath = this.getPlayerPath();
         this.currentPlayerIndex = 0;
@@ -296,8 +295,9 @@ export class PlayerService {
         //http for players
 
         // let players = Array.from(Object.keys(this.gameObject)).filter(k => k.startsWith('player')).map(e => e = this.gameObject[e])
+        let players = [];
         if (this.gameObject.allPlayers) {
-            let players = this.gameObject.allPlayers;
+          players = this.gameObject.allPlayers;
         }
         let gamePLayers: Array<{}> = [];
         for (let i = 0; i < players.length; i++) {
