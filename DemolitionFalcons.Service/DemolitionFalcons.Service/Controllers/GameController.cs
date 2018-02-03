@@ -51,7 +51,7 @@
 
             foreach (var player in gameChars)
             {
-                var playerFront = new PlayerFront(player.Id, player.Username, player.GamesPlayed, player.Wins, player.Xp, player.Money, player.Weapons);
+                var playerFront = new PlayerFront(player.Username, player.GamesPlayed, player.Wins, player.Xp, player.Money, player.Weapons);
                 res.Add(playerFront);
             }
 

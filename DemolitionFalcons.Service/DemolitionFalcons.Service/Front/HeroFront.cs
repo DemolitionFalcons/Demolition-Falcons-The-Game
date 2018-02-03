@@ -7,6 +7,10 @@ namespace DemolitionFalcons.Service.Front
 {
     public class HeroFront
     {
+        public HeroFront()
+        {
+        }
+
         public HeroFront(string name, string label, string description, int hp, int armour)
         {
             this.Name = name;
@@ -16,7 +20,7 @@ namespace DemolitionFalcons.Service.Front
             this.Armour = armour;
         }
 
-        public int Id { get; set; }
+        //public int Id { get; set; }
 
         public string Name { get; set; }
 
