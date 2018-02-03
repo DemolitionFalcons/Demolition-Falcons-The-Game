@@ -17,20 +17,25 @@ export class RemoteService {
     ) { }
 
     sendGameObject(gameObj): Observable<any> {
-        return this.http.post<any>(environment.apiBaseUrl + `...`, {
+        return this.http.post<any>("http://localhost:49994/api/game", {
             headers: {
                 'Content-Type': 'application/json',
+                'Allow-cross-platform-origin': 'true'
             },
-            body: gameObj
+            body: JSON.stringify(gameObj)
         })
     }
 
 
     getHeroList(): Observable<any> {
         return this.http.get(
-            "http://localhost:61815/api/characters",
+            "http://localhost:49994/api/characters",
         );
     }
+
+    // sendGameObject(gameObj): Observable<any>{
+    //     return this.http.post("http://localhost:49994/api/characters", gameObj)
+    // }
 
 }
 
