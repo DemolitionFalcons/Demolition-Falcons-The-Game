@@ -4,6 +4,7 @@ import { CreateGameService } from '../../../core/services/game-services/create-g
 import { RemoteService } from '../../../core/services/remote.service';
 import { GameInitInfoService } from '../../../core/services/game-services/game-init-info.service';
 import { Router } from '@angular/router';
+import { HeroesService } from '../../../core/services/game-services/heroes.service';
 
 @Component({
   selector: 'app-heroes-list',
@@ -19,55 +20,26 @@ export class HeroesListComponent implements OnInit {
   public playersObj: {};
   public className: string;
   public heroesObjects;
-  
+
   constructor(
     private createGameService: CreateGameService,
     private remoteService: RemoteService,
     private gameInitInfoService: GameInitInfoService,
+    private heroesService: HeroesService,
 
     private router: Router
   ) {
 
-    this.heroes = [{
-      name: 'Falcon',
-      hp: 400,
-      armor: 10,
-      image: '../../../../assets/img/heroes/hero-list/eagle.png',
-      description: 'It comes from a distant unknown land, it has a weak defense, but it is very quick and subtle'
-    },
-    {
-      name: 'Cloudy',
-      hp: 500,
-      armor: 20,
-      image: '../../../../assets/img/heroes/hero-list/cloudy.png',
-      description: 'It comes from a Cloudysland,drives skate and has a strange hairstyle'
-    }, {
-      name: 'Edward',
-      hp: 500,
-      armor: 20,
-      image: '../../../../assets/img/heroes/hero-list/edward.png',
-      description: 'It comes from nowhere,wears jacket and rocks'
-    }, {
-      name: 'Stephano',
-      hp: 500,
-      armor: 20,
-      image: '../../../../assets/img/heroes/hero-list/stephano.png',
-      description: 'It comes from a Scary place, eats brains and frightens children'
-    }, {
-      name: 'Darcus',
-      hp: 500,
-      armor: 20,
-      image: '../../../../assets/img/heroes/hero-list/darcus.png',
-      description: 'It comes from an Island far far away, and burns everything on its way'
-    }, {
-      name: 'Leonardo',
-      hp: 500,
-      armor: 20,
-      image: '../../../../assets/img/heroes/hero-list/leonardo.png',
-      description: 'It comes from the Savanah , fallen king looking for revange'
-    }];
+    this.heroesService.heroesRecieved$.subscribe(heroes => {
+      for (let hero of heroes) {
+        hero.image = '../../../../assets/img/heroes/hero-list/' + hero.name.toLowerCase() + '.png';
+      }
+      this.heroes = heroes
+
+    })
 
     this.heroesObjects = {};
+
     for (let hero of this.heroes) {
       this.heroesObjects[hero.name] = hero;
     }
@@ -84,6 +56,48 @@ export class HeroesListComponent implements OnInit {
       this.playersArr = Array.from(Object.keys(playersObj));
       this.className = 'col-sm-' + 12 / this.gameObject.numberOfPlayers;
     });
+
+
+    // this.heroes = [{
+    //   name: 'Falcon',
+    //   hp: 400,
+    //   armor: 10,
+    //   image: '../../../../assets/img/heroes/hero-list/eagle.png',
+    //   description: 'It comes from a distant unknown land, it has a weak defense, but it is very quick and subtle'
+    // },
+    // {
+    //   name: 'Cloudy',
+    //   hp: 500,
+    //   armor: 20,
+    //   image: '../../../../assets/img/heroes/hero-list/cloudy.png',
+    //   description: 'It comes from a Cloudysland,drives skate and has a strange hairstyle'
+    // }, {
+    //   name: 'Edward',
+    //   hp: 500,
+    //   armor: 20,
+    //   image: '../../../../assets/img/heroes/hero-list/edward.png',
+    //   description: 'It comes from nowhere,wears jacket and rocks'
+    // }, {
+    //   name: 'Stephano',
+    //   hp: 500,
+    //   armor: 20,
+    //   image: '../../../../assets/img/heroes/hero-list/stephano.png',
+    //   description: 'It comes from a Scary place, eats brains and frightens children'
+    // }, {
+    //   name: 'Darcus',
+    //   hp: 500,
+    //   armor: 20,
+    //   image: '../../../../assets/img/heroes/hero-list/darcus.png',
+    //   description: 'It comes from an Island far far away, and burns everything on its way'
+    // }, {
+    //   name: 'Leonardo',
+    //   hp: 500,
+    //   armor: 20,
+    //   image: '../../../../assets/img/heroes/hero-list/leonardo.png',
+    //   description: 'It comes from the Savanah , fallen king looking for revange'
+    // }];
+
+
   }
 
   ngOnInit() {

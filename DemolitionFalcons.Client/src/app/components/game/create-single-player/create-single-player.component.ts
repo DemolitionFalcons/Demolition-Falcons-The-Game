@@ -37,29 +37,27 @@ export class CreateSinglePlayerComponent implements OnInit {
   chooseHeroes(form) {
 
     this.remoteService.getHeroList().subscribe(data => {
-      console.log('HEROESSSSSSS')
-      console.log(data);
+      this.heroesService.updateHeroes(data);
+      //this.createGameService.createGamePost(this.model);
+      let gameObj = {
+        map: this.model.map,
+        name: this.model.name,
+        numberOfPlayers: Number(this.model.numberOfOpponents) + 1,
+        'player1': {
+          type: 'human',
+          nickname: '',
+          hero: ''
+        }
+      };
+
+      for (let key in form.value) {
+        if (key.startsWith('player')) {
+          gameObj[key] = { type: form.value[key], nickname: '', hero: '' }
+        }
+      }
+
+      this.createGameService.updateGameObject(gameObj);
+      this.router.navigate(['/ChooseHero']);
     });
-
-    //this.createGameService.createGamePost(this.model);
-    let gameObj = {
-      map: this.model.map,
-      name: this.model.name,
-      numberOfPlayers: Number(this.model.numberOfOpponents) + 1,
-      'player1': {
-        type: 'human',
-        nickname: '',
-        hero: ''
-      }
-    };
-
-    for (let key in form.value) {
-      if (key.startsWith('player')) {
-        gameObj[key] = { type: form.value[key], nickname: '', hero: '' }
-      }
-    }
-
-    this.createGameService.updateGameObject(gameObj);
-    this.router.navigate(['/ChooseHero']);
   }
 }

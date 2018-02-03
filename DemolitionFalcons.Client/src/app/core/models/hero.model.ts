@@ -4,6 +4,7 @@ export class HeroModel {
         public hp: number,
         public armor: number,
         public image: string,
-        public description: string
+        public description: string,
+        public label: string
     ) { }
 }
