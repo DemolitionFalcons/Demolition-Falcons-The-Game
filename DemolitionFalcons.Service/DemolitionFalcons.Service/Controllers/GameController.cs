@@ -69,8 +69,12 @@
 
         // POST api/game
         [HttpPost]
-        public void Post([FromBody]string value)
+        public string Post([FromBody]GameFront game)
         {
+            var name = game.Name;
+            var money = game.Money;
+
+            return "fsdfsdf";
         }
 
         // PUT api/game/5

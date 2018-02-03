@@ -123,6 +123,9 @@ export class HeroesListComponent implements OnInit {
     }
     //готовия обект за изпращане на заявака "this.gameObject"
     console.log(this.gameObject)
+    this.remoteService.sendGameObject(this.gameObject).subscribe(data => {
+      console.log(data)
+    })
     this.router.navigate(['/play']);
 
   }
