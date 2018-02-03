@@ -35,6 +35,7 @@ export class CreateSinglePlayerComponent implements OnInit {
   chooseHeroes(form) {
 
     this.remoteService.getHeroList().subscribe(data => {
+		console.log(' HEROEESSS')
       console.log(data);
     });
 

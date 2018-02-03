@@ -43,7 +43,7 @@ namespace DemolitionFalcons.Service
             }
 
             app.UseCors(
-                    options => options.WithOrigins("http://localhost").AllowAnyMethod()
+                    options => options.WithOrigins("http://localhost:4200").AllowAnyMethod()
             );
 
             app.UseMvc();

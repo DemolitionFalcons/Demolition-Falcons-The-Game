@@ -296,7 +296,8 @@ export class PlayerService {
         //http for players
 
         // let players = Array.from(Object.keys(this.gameObject)).filter(k => k.startsWith('player')).map(e => e = this.gameObject[e])
-        if (this.gameObject.allPlayers) {
+        let players = [];
+		if (this.gameObject.allPlayers) {
             let players = this.gameObject.allPlayers;
         }
         let gamePLayers: Array<{}> = [];
