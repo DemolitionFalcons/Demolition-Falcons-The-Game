@@ -299,6 +299,7 @@ export class PlayerService {
         if (this.gameObject.allPlayers) {
           players = this.gameObject.allPlayers;
         }
+        console.log(players)
         let gamePLayers: Array<{}> = [];
         for (let i = 0; i < players.length; i++) {
             let playerOffsets = getOffset(i, players.length);
