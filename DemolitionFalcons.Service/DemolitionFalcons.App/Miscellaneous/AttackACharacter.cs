@@ -25,12 +25,20 @@
 
         public void SinglePlayerAttack(NumberGenerator numberGenerator)
         {
-            if (!context.GameCharacters.SingleOrDefault(ch => ch.CharacterId == characterId).Spells.Any())
+            if (!context.GameCharacters.SingleOrDefault(ch => ch.CharacterId == characterId).SpellsId.Any())
             {
                 throw new ArgumentException("You cannot make an attack due to lack of spells!");
             }
 
-            var spells = context.GameCharacters.SingleOrDefault(ch => ch.CharacterId == characterId && ch.GameId == roomId).Spells.ToList();
+            var spellsId = context.GameCharacters.SingleOrDefault(ch => ch.CharacterId == characterId && ch.GameId == roomId).SpellsId.ToList();
+            var dbSpells = context.Spells;
+            var spells = new List<Spell>();
+
+            foreach (var id in spellsId)
+            {
+                spells.Add(dbSpells.FirstOrDefault(x => x.Id == id));
+            }
+
             Console.WriteLine("You can use one of the following spells to attack...");
             var counter = 1;
             foreach (var spell in spells)
@@ -74,12 +82,20 @@
 
         public void Attack()
         {
-            if (!context.GameCharacters.SingleOrDefault(ch => ch.CharacterId == characterId).Spells.Any())
+            if (!context.GameCharacters.SingleOrDefault(ch => ch.CharacterId == characterId).SpellsId.Any())
             {
                 throw new ArgumentException("You cannot make an attack due to lack of spells!");
             }
 
-            var spells = context.GameCharacters.SingleOrDefault(ch => ch.CharacterId == characterId && ch.GameId == roomId).Spells.ToList();
+            var spellsId = context.GameCharacters.SingleOrDefault(ch => ch.CharacterId == characterId && ch.GameId == roomId).SpellsId.ToList();
+            var dbSpells = context.Spells;
+            var spells = new List<Spell>();
+
+            foreach (var id in spellsId)
+            {
+                spells.Add(dbSpells.FirstOrDefault(x => x.Id == id));
+            }
+
             Console.WriteLine("You can use one of the following spells to attack...");
             var counter = 1;
             foreach (var spell in spells)
@@ -180,7 +196,7 @@
             }
 
             var gaChar = context.GameCharacters.SingleOrDefault(gc => gc.GameId == roomId && gc.CharacterId == characterId);
-            gaChar.Spells.Remove(chosenSpell);
+            gaChar.SpellsId.RemoveAt(gaChar.SpellsId.IndexOf(chosenSpell.Id));
             gaChar.SpellsCount--;
             context.GameCharacters.Update(gaChar);
             context.SaveChanges();
