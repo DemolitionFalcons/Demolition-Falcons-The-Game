@@ -12,12 +12,14 @@
     using Front;
     using Models;
     using DemolitionFalcons.App.Core.DTOs;
+    using System.Web.Http.Cors;
 
+    [EnableCors(origins: "*", headers: "*", methods: "*")]
     public class GameController : BaseApiController
     {
         [HttpGet]
         public IEnumerable<CharacterFront> Get()
-        {       
+        {
             var map = new DemoMap("map1");
 
             var character = this.dbContext.GameCharacters
@@ -69,16 +71,33 @@
 
         // POST api/game
         [HttpPost]
-        public string Post([FromBody]GameFront game)
+        public IActionResult Post([FromBody]GameDto value)
         {
-            //    if (value == null)
-            //    {
-            //        return BadRequest();
-            //    }
+            if (value == null)
+            {
+                return BadRequest();
+            }
+            Game game = new Game();
+            game.Name = value.Name;
+            game.Map = value.Map;
+            game.Capacity = value.Capacity;
+            dbContext.Games.Add(game);
+            dbContext.SaveChanges();
 
             //    dbContext.
 
-            return CreatedAtRoute("blqblq", new { id = value.Id }, value);
+            return CreatedAtRoute("GetoTodo", new { id = game.Id }, game);
+        }
+
+        [HttpGet("{id}", Name = "GetoTodo")]
+        public IActionResult GetById(long id)
+        {
+            var game = dbContext.Games.FirstOrDefault(g => g.Id == id);
+            if (game == null)
+            {
+                return NotFound();
+            }
+            return new ObjectResult(game);
         }
 
         // PUT api/game/5
