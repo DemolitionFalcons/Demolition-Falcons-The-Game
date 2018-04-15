@@ -61,7 +61,8 @@
                 }
                 catch (Exception e)
                 {
-                    writer.WriteLine(e.Message);
+                    //writer.WriteLine(e.Message);
+                    writer.WriteLine("Invalid Command");
 
                 }
             }

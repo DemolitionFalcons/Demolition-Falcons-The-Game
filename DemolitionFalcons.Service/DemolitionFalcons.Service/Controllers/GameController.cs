@@ -71,7 +71,7 @@
 
         // POST api/game
         [HttpPost]
-        public IActionResult Post([FromBody]GameDto value)
+        public IActionResult Post([FromBody]GameFront value)
         {
             if (value == null)
             {
