@@ -506,6 +506,7 @@
                             //sb.AppendLine($"Characters set on the Start");
                             Console.WriteLine($"Characters set on the Start");
                         }
+                        Console.WriteLine($"Characters set on the Start");
                         toBreak = true;
                         break;
                     }

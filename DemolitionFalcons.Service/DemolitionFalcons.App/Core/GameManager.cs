@@ -384,7 +384,7 @@
                     var counter = 1;
                     foreach (var chare in context.GameCharacters.Where(gc => gc.GameId == room.Id))
                     {
-                        Console.WriteLine($"{counter}. {chare.Character.Name} - {chare.Character.Hp} hp and {chare.Character.Armour}");
+                        Console.WriteLine($"{counter}. {chare.Character.Name} - {chare.Character.Hp} hp and {chare.Character.Armour} armour");
                         counter++;
                     }
                     Console.WriteLine("Choose a character");
