@@ -1,6 +1,7 @@
 ﻿namespace DemolitionFalcons.Models
 {
     using System.Collections.Generic;
+    using System.ComponentModel.DataAnnotations.Schema;
 
     public class GameCharacter
     {
@@ -34,7 +35,7 @@
 
         public int SpellsCount { get; set; }
 
-
-        public IList<Spell> Spells { get; set; } = new List<Spell>();
+        [NotMapped]
+        public IList<int> SpellsId { get; set; } = new List<int>();
     }
 }

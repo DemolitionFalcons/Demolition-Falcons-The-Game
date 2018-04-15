@@ -1,9 +1,9 @@
 import { Injectable } from '@angular/core';
 import { Router } from '@angular/router';
 
-import { BehaviorSubject } from 'rxjs/BehaviorSubject'
+import { BehaviorSubject } from 'rxjs/BehaviorSubject';
 import { Observable } from 'rxjs/Observable';
-import { HttpClient } from '@angular/common/http'
+import { HttpClient } from '@angular/common/http';
 
 
 import { environment } from '../../../environments/environment';
@@ -17,19 +17,23 @@ export class RemoteService {
     ) { }
 
     sendGameObject(gameObj): Observable<any> {
-        return this.http.post<any>("http://localhost:49994/api/game", {
+        return this.http.post<any>("http://localhost:5000/api/player", {
             headers: {
-                'Content-Type': 'application/json',
+
+                'Content-Type': 'application/x-www-form-urlencoded',
                 'Allow-cross-platform-origin': 'true'
             },
-            body: JSON.stringify(gameObj)
-        })
+            body: JSON.stringify({
+                Username: "aaas",
+                Password: "asas"
+            })
+        });
     }
 
 
     getHeroList(): Observable<any> {
         return this.http.get(
-            "http://localhost:49994/api/characters",
+            "http://localhost:5000/api/characters",
         );
     }
 

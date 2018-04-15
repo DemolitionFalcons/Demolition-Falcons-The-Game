@@ -12,12 +12,14 @@
     using Front;
     using Models;
     using DemolitionFalcons.App.Core.DTOs;
+    using System.Web.Http.Cors;
 
+    [EnableCors(origins: "*", headers: "*", methods: "*")]
     public class GameController : BaseApiController
     {
         [HttpGet]
         public IEnumerable<CharacterFront> Get()
-        {       
+        {
             var map = new DemoMap("map1");
 
             var character = this.dbContext.GameCharacters

@@ -410,7 +410,7 @@
                             {
                                 Console.WriteLine(ex.Message);
                             }
-                            if (context.GameCharacters.SingleOrDefault(ch => ch.CharacterId == character.Id && ch.GameId == roomId).Spells.Any())
+                            if (context.GameCharacters.SingleOrDefault(ch => ch.CharacterId == character.Id && ch.GameId == roomId).SpellsId.Any())
                             {
                                 Console.WriteLine("You can make an atack now. If you want to attack press spacebar, if you want to continue without attacking press any key");
                                 if (keyboardInput.ReadInput())
@@ -501,7 +501,7 @@
                         foreach (var chare in room.Characters)
                         {
                             var character = chare.Character;
-                            UpdateCharacterPositionInDb(character, firstMap[0][0].X, firstMap[0][0].Y, positionNumber, roomId);
+                            SetOnStartDb(character, firstMap[0][0].X, firstMap[0][0].Y, positionNumber, roomId);
 
                             //sb.AppendLine($"Characters set on the Start");
                             Console.WriteLine($"Characters set on the Start");
@@ -527,6 +527,21 @@
             dbChar.CharacterPositionX = X;
             dbChar.CharacterPositionY = Y;
             dbChar.MapSectionNumber = positionNumber;
+            context.GameCharacters.Update(dbChar);
+            context.SaveChanges();
+        }
+
+        private void SetOnStartDb(Character character, int X, int Y, int positionNumber, int roomId)
+        {
+            var dbChar = context.GameCharacters
+                .FirstOrDefault(c => c.CharacterId == character.Id && c.GameId == roomId);
+            dbChar.CharacterPositionX = X;
+            dbChar.CharacterPositionY = Y;
+            dbChar.MapSectionNumber = positionNumber;
+            dbChar.SpellsCount = 0;
+            dbChar.SpellsId.Clear();
+            dbChar.Health = character.Hp;
+            dbChar.Armour = character.Armour;
             context.GameCharacters.Update(dbChar);
             context.SaveChanges();
         }

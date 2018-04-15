@@ -91,7 +91,7 @@
                             {
                                 Console.WriteLine(ex.Message);
                             }
-                            if (context.GameCharacters.SingleOrDefault(ch => ch.CharacterId == character.Id && ch.GameId == roomId).Spells.Any())
+                            if (context.GameCharacters.SingleOrDefault(ch => ch.CharacterId == character.Id && ch.GameId == roomId).SpellsId.Any())
                             {
                                 Console.WriteLine("You can make an atack now. If you want to attack press spacebar, if you want to continue without attacking press any key");
                                 var keyboardInput = new KeyboardInput();
