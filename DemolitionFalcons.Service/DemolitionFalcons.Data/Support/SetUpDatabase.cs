@@ -204,7 +204,7 @@
 
             if (!context.Games.Any())
             {
-                var game = new Game()
+                var currentGame = new Game()
                 {
                     Name = "FirstGameEver",
                     Xp = 50,
@@ -213,14 +213,13 @@
                     Map = "FirstMapFrontEnd"
                 };
 
-                context.Games.Add(game);
+                context.Games.Add(currentGame);
                 context.SaveChanges();
             }
 
+            var currentCharacters = new List<Character>();
             if (!context.Characters.Any())
             {
-                var characters = new List<Character>();
-
                 var eagle = new Character
                 {
                     Name = "Eagle",
@@ -281,115 +280,136 @@
 
                 };
 
-                characters.Add(eagle);
-                characters.Add(cloudy);
-                characters.Add(edward);
-                characters.Add(stephano);
-                characters.Add(leonardo);
-                characters.Add(darcus);
+                currentCharacters.Add(eagle);
+                currentCharacters.Add(cloudy);
+                currentCharacters.Add(edward);
+                currentCharacters.Add(stephano);
+                currentCharacters.Add(leonardo);
+                currentCharacters.Add(darcus);
 
-                context.AddRange(characters);
+                context.AddRange(currentCharacters);
                 context.SaveChanges();
+            }
 
-                var game = context.Games.FirstOrDefault(x => x.Name == "FirstGameEver");
+            var game = context.Games.FirstOrDefault(x => x.Name == "FirstGameEver");
+            if (game.Characters.Count == 0)
+            {
+                var currentChars = context.Characters.ToList();
+                var currentGameChars = context.GameCharacters.ToList();
                 var gameChars = new List<GameCharacter>();
 
-                var weaponTaker = new TakeMostPowerfulWeapon();
-
-                var gameCharacterOne = new GameCharacter
+                if (context.GameCharacters.ToList().Count != 0)
                 {
-                    Character = characters[0],
-                    CharacterId = characters[0].Id,
-                    Game = game,
-                    GameId = game.Id,
-                    PlayerId = 1,
-                    Type = "computer",
-                    Health = characters[0].Hp,
-                    Armour = characters[0].Armour,
-                    WeaponId = weaponTaker.GetMostPowerfulWeapon(context, 1).Id
-                };
+                    for (int i = 0; i < 6; i++)
+                    {
+                        currentGameChars[i].Game = game;
+                        currentGameChars[i].GameId = game.Id;
+                    }
 
-                gameChars.Add(gameCharacterOne);
-
-                var gameCharacterTwo = new GameCharacter
+                    context.SaveChanges();
+                }
+                else
                 {
-                    Character = characters[1],
-                    CharacterId = characters[1].Id,
-                    Game = game,
-                    GameId = game.Id,
-                    PlayerId = 2,
-                    Type = "computer",
-                    Health = characters[1].Hp,
-                    Armour = characters[1].Armour,
-                    WeaponId = weaponTaker.GetMostPowerfulWeapon(context, 2).Id
-                };
+                    var weaponTaker = new TakeMostPowerfulWeapon();
 
-                gameChars.Add(gameCharacterTwo);
+                    var gameCharacterOne = new GameCharacter
+                    {
+                        Character = currentChars[0],
+                        CharacterId = currentChars[0].Id,
+                        Game = game,
+                        GameId = game.Id,
+                        PlayerId = 1,
+                        Type = "computer",
+                        Health = currentChars[0].Hp,
+                        Armour = currentChars[0].Armour,
+                        WeaponId = weaponTaker.GetMostPowerfulWeapon(context, 1).Id
+                    };
 
-                var gameCharacterThree = new GameCharacter
-                {
-                    Character = characters[2],
-                    CharacterId = characters[2].Id,
-                    Game = game,
-                    GameId = game.Id,
-                    PlayerId = 3,
-                    Type = "computer",
-                    Health = characters[2].Hp,
-                    Armour = characters[2].Armour,
-                    WeaponId = weaponTaker.GetMostPowerfulWeapon(context, 3).Id
-                };
+                    gameChars.Add(gameCharacterOne);
 
-                gameChars.Add(gameCharacterThree);
+                    var gameCharacterTwo = new GameCharacter
+                    {
+                        Character = currentChars[1],
+                        CharacterId = currentChars[1].Id,
+                        Game = game,
+                        GameId = game.Id,
+                        PlayerId = 2,
+                        Type = "computer",
+                        Health = currentChars[1].Hp,
+                        Armour = currentChars[1].Armour,
+                        WeaponId = weaponTaker.GetMostPowerfulWeapon(context, 2).Id
+                    };
 
-                var gameCharacterFour = new GameCharacter
-                {
-                    Character = characters[3],
-                    CharacterId = characters[3].Id,
-                    Game = game,
-                    GameId = game.Id,
-                    PlayerId = 4,
-                    Type = "computer",
-                    Health = characters[3].Hp,
-                    Armour = characters[3].Armour,
-                    WeaponId = weaponTaker.GetMostPowerfulWeapon(context, 4).Id
-                };
+                    gameChars.Add(gameCharacterTwo);
 
-                gameChars.Add(gameCharacterFour);
+                    var gameCharacterThree = new GameCharacter
+                    {
+                        Character = currentChars[2],
+                        CharacterId = currentChars[2].Id,
+                        Game = game,
+                        GameId = game.Id,
+                        PlayerId = 3,
+                        Type = "computer",
+                        Health = currentChars[2].Hp,
+                        Armour = currentChars[2].Armour,
+                        WeaponId = weaponTaker.GetMostPowerfulWeapon(context, 3).Id
+                    };
 
-                var gameCharacterFive = new GameCharacter
-                {
-                    Character = characters[4],
-                    CharacterId = characters[4].Id,
-                    Game = game,
-                    GameId = game.Id,
-                    PlayerId = 5,
-                    Type = "computer",
-                    Health = characters[4].Hp,
-                    Armour = characters[4].Armour,
-                    WeaponId = weaponTaker.GetMostPowerfulWeapon(context, 5).Id
-                };
+                    gameChars.Add(gameCharacterThree);
 
-                gameChars.Add(gameCharacterFive);
+                    var gameCharacterFour = new GameCharacter
+                    {
+                        Character = currentChars[3],
+                        CharacterId = currentChars[3].Id,
+                        Game = game,
+                        GameId = game.Id,
+                        PlayerId = 4,
+                        Type = "computer",
+                        Health = currentChars[3].Hp,
+                        Armour = currentChars[3].Armour,
+                        WeaponId = weaponTaker.GetMostPowerfulWeapon(context, 4).Id
+                    };
 
-                var gameCharacterSix = new GameCharacter
-                {
-                    Character = characters[5],
-                    CharacterId = characters[5].Id,
-                    Game = game,
-                    GameId = game.Id,
-                    PlayerId = 6,
-                    Type = "computer",
-                    Health = characters[5].Hp,
-                    Armour = characters[5].Armour,
-                    WeaponId = weaponTaker.GetMostPowerfulWeapon(context, 6).Id
-                };
+                    gameChars.Add(gameCharacterFour);
 
-                gameChars.Add(gameCharacterSix);
+                    var gameCharacterFive = new GameCharacter
+                    {
+                        Character = currentChars[4],
+                        CharacterId = currentChars[4].Id,
+                        Game = game,
+                        GameId = game.Id,
+                        PlayerId = 5,
+                        Type = "computer",
+                        Health = currentChars[4].Hp,
+                        Armour = currentChars[4].Armour,
+                        WeaponId = weaponTaker.GetMostPowerfulWeapon(context, 5).Id
+                    };
 
-                context.GameCharacters.AddRange(gameChars);
-                context.SaveChanges();
+                    gameChars.Add(gameCharacterFive);
 
+                    var gameCharacterSix = new GameCharacter
+                    {
+                        Character = currentChars[5],
+                        CharacterId = currentChars[5].Id,
+                        Game = game,
+                        GameId = game.Id,
+                        PlayerId = 6,
+                        Type = "computer",
+                        Health = currentChars[5].Hp,
+                        Armour = currentChars[5].Armour,
+                        WeaponId = weaponTaker.GetMostPowerfulWeapon(context, 6).Id
+                    };
+
+                    gameChars.Add(gameCharacterSix);
+
+                    context.GameCharacters.AddRange(gameChars);
+                    context.SaveChanges();
+                }
+
+                
             }
+
+
 
             if (!context.Spells.Any())
             {
